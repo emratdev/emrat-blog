@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "123456",
+      "role": "USER"
+    },
+    {
+      "id": 2,
+      "username": "author1",
+      "password": "123456",
+      "role": "AUTHOR"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Birinchi maqola",
+      "content": "Maqola matni...",
+      "authorId": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 1,
+      "content": "Zo‘r maqola!"
+    }
+  ]
+}
