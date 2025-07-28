@@ -1,36 +1,19 @@
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
+import { Facebook, Instagram, Search, Twitter } from "lucide-react";
 
 export const HeaderLayout = () => {
   return (
     <header className="section-header">
       <div className="header__social">
         <Link className="social__items" href="#">
-          {" "}
-          <Image
-            width={30}
-            height={30}
-            src="/img/icons/social/instagram.svg"
-            alt="instagram"
-          />
+          <Instagram />
+        </Link>
+        <Link className="social__items" href="#">
+          <Twitter size={40} />
         </Link>
         <Link className="social__items" href="#">
           {" "}
-          <Image
-            width={30}
-            height={30}
-            src="/img/icons/social/twitter.svg"
-            alt="instagram"
-          />
-        </Link>
-        <Link className="social__items" href="#">
-          {" "}
-          <Image
-            width={30}
-            height={30}
-            src="/img/icons/social/facebook-f.svg"
-            alt="instagram"
-          />
+          <Facebook size={40} />
         </Link>
       </div>
       <div className="header__logo">
@@ -38,12 +21,7 @@ export const HeaderLayout = () => {
       </div>
       <div className="header__right">
         <div className="header__search">
-          <Image
-            width={30}
-            height={30}
-            src="/img/icons/search.svg"
-            alt="search"
-          />
+          <Search size={40}/>
         </div>
         <Link href="/register">
           <div className="button">Subscribe</div>

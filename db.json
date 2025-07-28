@@ -16,9 +16,31 @@
   "posts": [
     {
       "id": 1,
-      "title": "Birinchi maqola",
-      "content": "Maqola matni...",
-      "authorId": 2
+      "title": "Blog Post 1",
+      "created_at": "2023-10-01T12:00:00Z",
+      "comments": [
+        {
+          "id": 1,
+          "user_avatar": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+          "user_name": "John Doe",
+          "content": "This is a comment on Blog Post 1"
+        },
+        {
+          "id": 2,
+          "user_avatar": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg",
+          "user_name": "Mack Doe",
+          "content": "This is a comment on Blog Post 1"
+        }
+      ],
+
+      "main_photo": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.",
+      "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Cras venenatis euismod malesuada. Nulla facilisi. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor."
+
+
+      
+       
+     
     }
   ],
   "comments": [

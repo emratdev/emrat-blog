@@ -1,80 +1,25 @@
+import { getPosts } from "@/api/posts/get-posts";
 import Image from "next/image";
 import Link from "next/link";
+import { Article } from "./article";
+import { Pagination } from "./pagination";
 
-export default function Content() {
+export const Content = async ({page}:{page: number}) => {
+   
+  const postData = await getPosts({page });
   return (
     <div className="container">
       <main className="section-main">
         <div className="main__left">
-          {[1, 2, 3, 4, 5].map((_, i) => (
-            <article className="section-article" key={i}>
-              <div className="article__title">
-                <h2 className="title">
-                  {/* Replace below with dynamic title */}
-                  Sample blog post title {i + 1}
-                </h2>
-                <div className="article__info">
-                  <h3 className="info">December 26, 2019 — 5 comments</h3>
-                </div>
-                <div className="article__img">
-                  <Image
-                    src={`/img/posts-preview/img-0${i + 1}.jpg`}
-                    alt="Post preview"
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <div className="article__text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus lacinia odio vitae vestibulum vestibulum.
-                  </p>
-                </div>
-                <footer className="article__footer">
-                  <Link
-                    href={`/posts/maqola-${i + 1}`}
-                    className="button button--rounded"
-                  >
-                     Read More
-                  </Link>
-                  <div className="article__social">
-                    {["whatsapp", "instagram", "twitter", "facebook-f"].map(
-                      (platform) => (
-                        <Link
-                          key={platform}
-                          className="article__social__items"
-                          href="#"
-                        >
-                          <Image
-                            src={`/img/icons/social/${platform}.svg`}
-                            alt={platform}
-                            width={24}
-                            height={24}
-                          />
-                        </Link>
-                      )
-                    )}
-                  </div>
-                </footer>
-              </div>
-            </article>
-          ))}
 
-          <div className="pagination">
-            <button className="pagination__button" aria-label="Previous page" />
-            <div className="slider">
-              {[1, 2, 3].map((page) => (
-                <Link
-                  key={page}
-                  href="#"
-                  className={`slid__article ${page === 1 ? "active" : ""}`}
-                >
-                  {page}
-                </Link>
-              ))}
-            </div>
-            <button className="pagination__button">Older Posts</button>
-          </div>
+          {
+            postData.map(post => <Article key={post.id} {...post}/> )
+          }
+
+          <Pagination total={30 }/>
+       
+
+          
         </div>
 
         <div className="main__right">
