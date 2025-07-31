@@ -1,3 +1,4 @@
+import { Routers } from "@/configs/router.config";
 import { Link } from "@/i18n/navigation";
 import { Facebook, Instagram, Search, Twitter } from "lucide-react";
 
@@ -21,12 +22,13 @@ export const HeaderLayout = () => {
       </div>
       <div className="header__right">
         <div className="header__search">
-          <Search size={40}/>
+          <Search size={40} />
         </div>
-        <Link href="/register">
-          <div className="button">Subscribe</div>
+        <Link href={Routers.auth.register}>
+          <span role="button" className="button">Subscribe</span>
         </Link>
       </div>
     </header>
   );
 };
+ 

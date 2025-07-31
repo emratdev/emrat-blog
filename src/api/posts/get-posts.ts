@@ -1,20 +1,28 @@
- import type { Post } from '@/types/post.type';
-import { ENV } from '../../configs/.env.config';
- 
- export const getPosts = async ({page}:Params):Promise<Post[]> => {
-   try {
-      const response = await fetch(`${ENV.API_URL}/api/posts?_page=${page}&_limit=10`,);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const posts = await response.json();
-      return posts as Post[];
-   } catch (error) {
-      console.error('Failed to fetch posts:', error);
-      return [];
-   }
-    
-    
- }
+import { ENV } from "@/configs/env.config";
+import { createSearchParams } from "@/lib/utils";
+import type { Post } from "@/types/post.type";
 
- interface Params {
-   page?: number;
- }
+export const getPosts = async ({ limit, page, order, sort }: Params) => {
+  const searchParams = createSearchParams({
+    _page: page, 
+    _limit: limit,
+    _sort: sort,
+    _order: order
+  });
+
+  try {
+    const res = await fetch(`${ENV.API_URL}/posts?${searchParams}`) 
+    const posts = await res.json();
+    return posts as Post[];
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+interface Params {
+  page?: number;
+  limit?: number;
+  order?: string;
+  sort?: string;
+};
