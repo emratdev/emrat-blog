@@ -21,10 +21,8 @@ ol {
   padding: 0;
   list-style-type: none;
 }
-a,
 span,
 input,
-button,
 textarea {
   display: inline-block;
 }

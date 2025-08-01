@@ -5,10 +5,9 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { HeaderLayout } from "@/layout/header.layout";
 import "@/styles/globals.css";
-import { FooterLayout } from "@/layout/footer.layout";
 import { NuqsAdapter } from "nuqs/adapters/next";
+
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -31,15 +30,13 @@ const RootLayout: LayoutType = async (props) => {
 
   return (
     <html lang={locale} className={cn(montserrat.className, "scroll-smooth")}>
-      <body className="min-h-screen flex flex-col">
+ <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider>
           <NuqsAdapter>
-            <HeaderLayout />
-            <main className="flex-1">{children}</main>
-            <FooterLayout />
+           {children }
           </NuqsAdapter>
         </NextIntlClientProvider>
-      </body>
+      </body>        
     </html>
   );
 };
