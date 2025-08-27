@@ -12,34 +12,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { startTransition, type ComponentProps } from "react";
 import { useForm } from "react-hook-form";
-import { register as registerAction } from "@/actions/register.action"; 
 import { Link } from "@/i18n/navigation";
 import { Routers } from "@/configs/router.config";
+
+export function LoginForm({ className, ...props }: ComponentProps<"div">) {
+  const { register, handleSubmit } = useForm<FormFields>();
  
-
-
-export function RegisterForm({
-  className,
-  ...props
-}: ComponentProps<"div">) {
-  const {register, handleSubmit} = useForm<FormFields>();
-  // const locale = useLocale();
-
   const onSubmit = (data: FormFields) => {
     startTransition(async () => {
-      await registerAction(data);
-
-
       
-    })
-  }
-
+    });
+  };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Register</CardTitle>
+          <CardTitle className="text-xl">Login</CardTitle>
           <CardDescription>
             Login with your Apple or Google account
           </CardDescription>
@@ -73,16 +62,7 @@ export function RegisterForm({
                 </span>
               </div>
               <div className="grid gap-6">
-                <div className="grid gap-3">
-                  <Label htmlFor="username">Username</Label>
-                  <Input
-                    id="username"
-                    type="username"
-                    placeholder="John Doe"
-                    required
-                    {...register("username")}
-                  />
-                </div>
+                
                 <div className="grid gap-3">
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -110,21 +90,17 @@ export function RegisterForm({
                     {...register("password")}
                   />
                 </div>
-                <div className="grid gap-3">
-                  <Label htmlFor="avatar">Avatar</Label>
-                  <Input
-                    id="avatar"
-                    type="file"
-                    {...register("avatar")}
-                  />
-                </div>
+            
                 <Button type="submit" className="w-full">
                   Login
                 </Button>
               </div>
               <div className="text-center text-sm">
                 Do have an account?{" "}
-                <Link href={Routers.auth.login} className="underline underline-offset-4">
+                <Link
+                  href={Routers.auth.login}
+                  className="underline underline-offset-4"
+                >
                   Sign in
                 </Link>
               </div>
@@ -140,10 +116,7 @@ export function RegisterForm({
   );
 }
 
-
 interface FormFields {
-  avatar: FileList ;
-  username: string;
   email: string;
   password: string;
 }

@@ -7,7 +7,7 @@ export const getComments = async ({ postId }: Params) => {
   });
 
   try {
-    const res = await fetch(`${ENV.API_URL}/comments?${searchParams}`) 
+    const res = await fetch(`${ENV.API_URL}/comments?${searchParams}`);
     const posts = await res.json();
     return posts as Comment[];
   } catch (error) {
@@ -18,6 +18,4 @@ export const getComments = async ({ postId }: Params) => {
 
 interface Params {
   postId?: number;
-
-};
- 
+}

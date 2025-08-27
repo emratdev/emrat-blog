@@ -1,25 +1,27 @@
 import { getPosts } from "@/api/posts/get-posts";
 import Image from "next/image";
 import Link from "next/link";
-import { Article } from "./article";
 import { Pagination } from "./pagination";
+import { Post } from "./post";
+import { getLocale } from "next-intl/server";
 
-export const Content = async ({page}:{page: number}) => {
-   
-  const postData = await getPosts({page });
+export const Content = async ({ page }: { page: number }) => {
+  const locale = await getLocale();
+
+  const postData = await getPosts({ page });
   return (
     <div className="container">
       <main className="section-main">
         <div className="main__left">
 
           {
-            postData.map(post => <Article key={post.id} {...post}/> )
+            postData.map(post => <Post key={post.id} postData={post} />)
           }
 
-          <Pagination total={postData.length }/>
-       
+          <Pagination total={postData.length} />
 
-          
+
+
         </div>
 
         <div className="main__right">

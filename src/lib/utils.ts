@@ -1,14 +1,12 @@
-import { clsx, type ClassValue } from "clsx"
-import dayjs from "dayjs"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import dayjs from "dayjs";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
-
 export const Time = dayjs;
-
 
 export const createSearchParams = (params: Record<string, unknown>) => {
   const searchParams = new URLSearchParams();
@@ -17,15 +15,10 @@ export const createSearchParams = (params: Record<string, unknown>) => {
     if (
       params[key] !== undefined &&
       params[key] !== null &&
-      params[key] !== "" 
+      params[key] !== ""
     ) {
       searchParams.set(key, `${params[key]}`);
     }
   }
   return searchParams.toString();
 };
-
-
-
-  
-

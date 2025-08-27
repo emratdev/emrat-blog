@@ -7,4 +7,4 @@ export interface User {
     password: string;
     role: typeof UserRoles[number]["role"];
     avatar: string;
-    };
+};
