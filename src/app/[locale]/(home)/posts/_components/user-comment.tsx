@@ -9,7 +9,7 @@ export const UserComment = async( {userId, commentId }: Props) => {
     return (
       <div className="comments__items">
         <div className="comments__user">
-          {user?.avatar.trim() && (
+          {/* {user?.avatar.trim() && (
             <Link className="user__avatar" href="#">
               <img
                 src={user?.avatar || ""}
@@ -18,7 +18,7 @@ export const UserComment = async( {userId, commentId }: Props) => {
                 height={50}
               />
             </Link> 
-          )}
+          )} */}
           <Link className="user__nike" href="#">
             {user?.username}
           </Link>

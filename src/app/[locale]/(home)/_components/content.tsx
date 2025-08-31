@@ -68,7 +68,7 @@ export const Content = async ({ page }: { page: number }) => {
           <div className="widget">
             <h3 className="title">Instagram</h3>
             <div className="widget__instagram-photo">
-              {[...Array(10)].map((_, i) => (
+              {[...Array(9)].map((_, i) => (
                 <Link className="widget__item-img" href="#" key={i}>
                   <Image
                     src={`/img/instagram/insta-0${i + 1}.jpg`}

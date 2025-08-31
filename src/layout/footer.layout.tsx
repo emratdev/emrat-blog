@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import Link from "next/link";
 
 export const FooterLayout = () => {
@@ -50,31 +50,14 @@ export const FooterLayout = () => {
           </ul>
           <div className="footer__social">
             <Link className="social__items" href="#">
-              {" "}
-              <Image
-                width={30}
-                height={30}
-                src="/img/icons/social/instagram.svg"
-                alt="instagram"
-              />
+              <Instagram />
+            </Link>
+            <Link className="social__items" href="#">
+              <Twitter size={40} />
             </Link>
             <Link className="social__items" href="#">
               {" "}
-              <Image
-                width={30}
-                height={30}
-                src="/img/icons/social/twitter.svg"
-                alt="instagram"
-              />
-            </Link>
-            <Link className="social__items" href="#">
-              {" "}
-              <Image
-                width={30}
-                height={30}
-                src="/img/icons/social/facebook-f.svg"
-                alt="instagram"
-              />
+              <Facebook size={40} />
             </Link>
           </div>
         </div>

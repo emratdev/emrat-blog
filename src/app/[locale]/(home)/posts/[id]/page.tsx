@@ -5,8 +5,8 @@ import { CommentForm } from "../_components/comment-form";
 import { Routers } from "@/configs/router.config";
 import { redirect } from "@/i18n/navigation";
 import { getComments } from "@/api/comments/get-comments.api";
-import { UserComment } from "../_components/user-comment";
 import { setRequestLocale } from "next-intl/server";
+import { UserComment } from "../_components/user-comment";
 
 
 
@@ -51,11 +51,11 @@ const Page: PageType = async ({ params }) => {
           <h3 className="title">Other comments:</h3>
         </div>
         <div className="other-comment__comments">
-          {/* {
+          {
             commentData.map((comment) => (
               <UserComment key={comment.id} userId={comment.userId} commentId={comment.id} />
             ))
-          } */}
+          }
         </div>
       </article>
     </div>

@@ -32,6 +32,8 @@ export const register = async (body: Payload) => {
 
   const expires = new Date(Date.now() + 3600 * 1000); // 1 hour
 
+  console.log(response)
+
   const session = JSON.stringify(response);
 
   (await cookies()).set({

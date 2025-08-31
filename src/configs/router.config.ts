@@ -1,9 +1,9 @@
 
  export const Routers = {
-    main: '/en',
-    postDetails:(id: number) => `en/posts/${id}`,
+    main: '/',
+    postDetails:(id: number) => `/posts/${id}`,
     auth: {
-         login: 'en/auth/login',
-         register: 'en/auth/register', 
+         login: '/auth/login',
+         register: '/auth/register', 
     }
  }

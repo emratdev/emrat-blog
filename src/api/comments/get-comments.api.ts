@@ -1,5 +1,6 @@
 import { ENV } from "@/configs/env.config";
 import { createSearchParams } from "@/lib/utils";
+import type { Comment } from "@/types/comment.type";
 
 export const getComments = async ({ postId }: Params) => {
   const searchParams = createSearchParams({

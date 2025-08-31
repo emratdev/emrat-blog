@@ -7,6 +7,14 @@
       "role": "USER",
       "avatar": "",
       "id": 1
+    },
+    {
+      "username": "user3",
+      "email": "m@mail.ru",
+      "password": "123",
+      "role": "USER",
+      "avatar": "",
+      "id": 2
     }
   ],
   "posts": [
@@ -25,5 +33,24 @@
       "id": 1
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "content": "hi",
+      "postId": 1,
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "content": "Write something here",
+      "postId": 1,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "content": "Write something here 11",
+      "postId": 1,
+      "userId": 2,
+      "id": 3
+    }
+  ]
 }
