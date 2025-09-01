@@ -1,9 +1,10 @@
 import { getPosts } from "@/api/posts/get-posts";
 import Image from "next/image";
-import Link from "next/link";
 import { Pagination } from "./pagination";
 import { Post } from "./post";
 import { getLocale } from "next-intl/server";
+import { Instagram } from "./instagram";
+import { PopularPosts } from "./popular-posts";
 
 export const Content = async ({ page }: { page: number }) => {
   const locale = await getLocale();
@@ -13,15 +14,11 @@ export const Content = async ({ page }: { page: number }) => {
     <div className="container">
       <main className="section-main">
         <div className="main__left">
-
-          {
-            postData.map(post => <Post key={post.id} postData={post} />)
-          }
+          {postData.map((post) => (
+            <Post key={post.id} postData={post} />
+          ))}
 
           <Pagination total={postData.length} />
-
-
-
         </div>
 
         <div className="main__right">
@@ -45,41 +42,9 @@ export const Content = async ({ page }: { page: number }) => {
             ))}
           </div>
 
-          <div className="widget">
-            <h3 className="title">Popular posts</h3>
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div className="widget__desc" key={i}>
-                <div className="widget__desc__img">
-                  <Image
-                    src={`/img/small-thumbs/0${i}.jpg`}
-                    alt="Popular post"
-                    width={100}
-                    height={70}
-                  />
-                </div>
-                <h4 className="title">Sample popular post {i}</h4>
-                <div className="widget__desc__info">
-                  December 26, 2019 — 5 comments
-                </div>
-              </div>
-            ))}
-          </div>
+         <PopularPosts/>
 
-          <div className="widget">
-            <h3 className="title">Instagram</h3>
-            <div className="widget__instagram-photo">
-              {[...Array(9)].map((_, i) => (
-                <Link className="widget__item-img" href="#" key={i}>
-                  <Image
-                    src={`/img/instagram/insta-0${i + 1}.jpg`}
-                    alt={`Instagram ${i + 1}`}
-                    width={80}
-                    height={80}
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Instagram/>
         </div>
       </main>
     </div>
